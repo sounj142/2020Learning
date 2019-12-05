@@ -12,6 +12,9 @@ namespace WiredBrainCoffee.ConsoleApp
 			coffeeMachine.MakeCappuccino();
 
 			Console.WriteLine($"Count Cappuccino: {coffeeMachine.CounterCappuccino}");
+
+			//var anfa = new NETFrameworkTestLib.Anfa("abbccdd");
+			//Console.WriteLine(anfa.Message);
 		}
 	}
 }
