@@ -1,4 +1,6 @@
-﻿namespace WiredBrainCoffee.Simulators
+﻿using System;
+
+namespace WiredBrainCoffee.Simulators
 {
 	public class CoffeeMachine
 	{
@@ -7,6 +9,7 @@
 		public void MakeCappuccino()
 		{
 			CounterCappuccino++;
+			Console.WriteLine("aaa");
 		}
 	}
 }
