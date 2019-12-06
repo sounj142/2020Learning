@@ -1,4 +1,5 @@
 ﻿using System;
+using WiredBrainCoffee.Storage;
 
 namespace WiredBrainCoffee.Simulators
 {
@@ -10,6 +11,14 @@ namespace WiredBrainCoffee.Simulators
 		{
 			CounterCappuccino++;
 			Console.WriteLine("aaa");
+		}
+
+		public void Save()
+		{
+			var saveProvide = new CoffeeMachineStateSaver();
+			var coffeeState = new CoffeeMachineState { CounterCappuccino = CounterCappuccino };
+			saveProvide.Save(coffeeState);
+			// saveProvide.ShowStoredJson();
 		}
 	}
 }

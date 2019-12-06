@@ -4,4 +4,8 @@
 	  <TargetFramework>netstandard1.3</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WiredBrainCoffee.Storage\WiredBrainCoffee.Storage.csproj" />
+  </ItemGroup>
+
 </Project>
