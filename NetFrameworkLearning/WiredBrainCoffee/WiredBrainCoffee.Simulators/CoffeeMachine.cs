@@ -4,21 +4,27 @@ using WiredBrainCoffee.Storage;
 namespace WiredBrainCoffee.Simulators
 {
 	public class CoffeeMachine
-	{
+    {
+        private readonly CoffeeMachineStateSaver _coffeeMachineStateSaver;
 		public int CounterCappuccino { get; private set; }
 
-		public void MakeCappuccino()
-		{
-			CounterCappuccino++;
-			Console.WriteLine("aaa");
-		}
+        public CoffeeMachine()
+        {
+            _coffeeMachineStateSaver = new CoffeeMachineStateSaver();
+            var state = _coffeeMachineStateSaver.Load();
+            CounterCappuccino = state.CounterCappuccino;
+        }
 
-		public void Save()
-		{
-			var saveProvide = new CoffeeMachineStateSaver();
-			var coffeeState = new CoffeeMachineState { CounterCappuccino = CounterCappuccino };
-			saveProvide.Save(coffeeState);
-			// saveProvide.ShowStoredJson();
-		}
-	}
+        public void MakeCappuccino()
+        {
+            CounterCappuccino++;
+            Console.WriteLine("Increment : " + CounterCappuccino);
+            var state = new CoffeeMachineState
+            {
+                CounterCappuccino = CounterCappuccino
+            };
+            _coffeeMachineStateSaver.Save(state);
+            _coffeeMachineStateSaver.ShowStoredJson();
+        }
+    }
 }

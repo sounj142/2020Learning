@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".NET Standard", ".NET Stand
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WiredBrainCoffee.Storage", "WiredBrainCoffee.Storage\WiredBrainCoffee.Storage.csproj", "{852DE6F2-3436-4DEB-9E93-9031F1A0DDDE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WiredBrainCoffee.ConsoleAppNetFramework", "WiredBrainCoffee.ConsoleAppNetFramework\WiredBrainCoffee.ConsoleAppNetFramework.csproj", "{507662EC-F7E8-4A91-83AB-3F512BBB8E5E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{852DE6F2-3436-4DEB-9E93-9031F1A0DDDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{852DE6F2-3436-4DEB-9E93-9031F1A0DDDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{852DE6F2-3436-4DEB-9E93-9031F1A0DDDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{507662EC-F7E8-4A91-83AB-3F512BBB8E5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{507662EC-F7E8-4A91-83AB-3F512BBB8E5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{507662EC-F7E8-4A91-83AB-3F512BBB8E5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{507662EC-F7E8-4A91-83AB-3F512BBB8E5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{865F5FDC-B620-4E61-80C9-8C7E07D71981} = {0676D732-1390-4BB4-9066-1338543CAAAD}
 		{89158C17-486E-4CF6-A491-76B18F6F32AE} = {0676D732-1390-4BB4-9066-1338543CAAAD}
 		{852DE6F2-3436-4DEB-9E93-9031F1A0DDDE} = {0676D732-1390-4BB4-9066-1338543CAAAD}
+		{507662EC-F7E8-4A91-83AB-3F512BBB8E5E} = {0676D732-1390-4BB4-9066-1338543CAAAD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {96377549-D9DE-4925-BA1A-09EE31B8DEFF}

@@ -2,17 +2,12 @@
 using System.Threading;
 using WiredBrainCoffee.Simulators;
 
-namespace WiredBrainCoffee.ConsoleApp
+namespace WiredBrainCoffee.ConsoleAppNetFramework
 {
-	internal class Program
-	{
-		private static void Main(string[] args)
-		{
-            //var coffeeMachine = new CoffeeMachine();
-            //coffeeMachine.MakeCappuccino();
-            //coffeeMachine.MakeCappuccino();
-
-            //         Console.WriteLine($"Count Cappuccino: {coffeeMachine.CounterCappuccino}");
+    class Program
+    {
+        static void Main(string[] args)
+        {
 
             Thread t = new Thread(() =>
             {
@@ -26,5 +21,5 @@ namespace WiredBrainCoffee.ConsoleApp
             t.SetApartmentState(ApartmentState.STA);
             t.Start();
         }
-	}
+    }
 }

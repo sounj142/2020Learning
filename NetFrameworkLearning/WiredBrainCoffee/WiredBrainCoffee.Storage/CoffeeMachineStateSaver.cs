@@ -5,7 +5,7 @@ namespace WiredBrainCoffee.Storage
 {
 	public class CoffeeMachineStateSaver
 	{
-		private readonly string _filename = "d:\\machine.json";
+		private readonly string _filename = "machine.json";
 
 		public void Save(CoffeeMachineState state)
 		{
