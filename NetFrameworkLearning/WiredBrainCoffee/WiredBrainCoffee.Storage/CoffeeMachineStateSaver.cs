@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 using System.IO;
 
 namespace WiredBrainCoffee.Storage
@@ -27,17 +28,22 @@ namespace WiredBrainCoffee.Storage
 		public void ShowStoredJson()
 		{
 			var json = File.Exists(_filename) ? File.ReadAllText(_filename) : "<empty>";
-			var window = new System.Windows.Window
-			{
-				Title = "Stored JSON",
-				Content = json,
-				WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen,
-				FontSize = 20,
-				Width = 300,
-				Height = 300
-			};
 
-			window.Show();
-		}
-	}
+#if NETSTANDARD1_3
+            Console.WriteLine($"Stored json {json}");
+#elif NET461
+            var window = new System.Windows.Window
+            {
+                Title = "Stored JSON",
+                Content = json,
+                WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen,
+                FontSize = 20,
+                Width = 300,
+                Height = 300
+            };
+
+            window.Show();
+#endif
+        }
+    }
 }
