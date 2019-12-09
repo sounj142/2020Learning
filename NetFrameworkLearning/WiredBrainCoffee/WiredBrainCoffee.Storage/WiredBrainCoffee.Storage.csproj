@@ -2,7 +2,11 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard1.3;net461</TargetFrameworks>
-    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Luong Ngoc Hoang</Authors>
+    <Company>Wired Brain Coffee</Company>
+    <Description>Allow store the state of a coffee machine</Description>
+    <PackageIconUrl>https://www.thomasclaudiushuber.com/wiredbraincoffee.png</PackageIconUrl>
   </PropertyGroup>
 
   <ItemGroup>
