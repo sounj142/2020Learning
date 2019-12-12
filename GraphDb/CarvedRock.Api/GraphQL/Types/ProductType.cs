@@ -3,6 +3,7 @@ using CarvedRock.Api.Repositories;
 using GraphQL.DataLoader;
 using GraphQL.Types;
 using System.Security.Claims;
+using GraphQL;
 
 namespace CarvedRock.Api.GraphQL.Types
 {
@@ -23,8 +24,11 @@ namespace CarvedRock.Api.GraphQL.Types
 				"reviews",
 				resolve: context =>
 				{
-					var user = context.UserContext as ClaimsPrincipal;
-					var loader = dataLoaderAccessor.Context.GetOrAddCollectionBatchLoader<int, ProductReview>(
+                    // var user = context.UserContext as ClaimsPrincipal;
+
+                    // context.Errors.Add(new ExecutionError("An error happened when read reviews"));
+
+                    var loader = dataLoaderAccessor.Context.GetOrAddCollectionBatchLoader<int, ProductReview>(
 						"GetReviewsByProductIds", productReviewRepository.GetByProductIds);
 					return loader.LoadAsync(context.Source.Id);
 				}
