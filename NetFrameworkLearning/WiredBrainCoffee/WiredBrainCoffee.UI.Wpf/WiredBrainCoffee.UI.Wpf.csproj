@@ -97,10 +97,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WiredBrainCoffee.Simulators\WiredBrainCoffee.Simulators.csproj">
-      <Project>{e9a04a59-07ae-4cbf-a898-10c23a4ca633}</Project>
-      <Name>WiredBrainCoffee.Simulators</Name>
-    </ProjectReference>
+    <PackageReference Include="WiredBrainCoffee.Simulators">
+      <Version>1.0.0</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

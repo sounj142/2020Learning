@@ -1,7 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <TargetFrameworks>net461;netstandard1.3</TargetFrameworks>
+	  <TargetFramework>netstandard1.3</TargetFramework>
+	  <Authors>Hoang Luong</Authors>
+	  <Company>Wired Brain Coffee</Company>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>

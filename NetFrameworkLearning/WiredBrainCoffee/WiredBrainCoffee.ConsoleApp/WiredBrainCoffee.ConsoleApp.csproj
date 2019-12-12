@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WiredBrainCoffee.Simulators\WiredBrainCoffee.Simulators.csproj" />
+    <PackageReference Include="WiredBrainCoffee.Simulators" Version="1.0.0" />
   </ItemGroup>
 
 </Project>
