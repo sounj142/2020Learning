@@ -8,6 +8,8 @@ namespace CarvedRock.Api.GraphQL
 		public CarvedRockSchema(IDependencyResolver dependencyResolver) : base(dependencyResolver)
 		{
 			Query = dependencyResolver.Resolve<CarvedRockQuery>();
-		}
+            Mutation = dependencyResolver.Resolve<CarvedRockMutation>();
+            Subscription = dependencyResolver.Resolve<CarvedRockSubscription>();
+        }
 	}
 }

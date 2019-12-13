@@ -10,5 +10,6 @@ namespace CarvedRock.Api.Repositories
 		Task<IEnumerable<ProductReview>> GetByProductId(int productId);
 
 		Task<ILookup<int, ProductReview>> GetByProductIds(IEnumerable<int> productIds);
-	}
+        Task<ProductReview> AddReview(ProductReview review);
+    }
 }

@@ -1,5 +1,6 @@
 ﻿using CarvedRock.Api.Data;
 using CarvedRock.Api.GraphQL;
+using CarvedRock.Api.GraphQL.Messaging;
 using CarvedRock.Api.Repositories;
 using GraphQL;
 using GraphQL.Server;
@@ -33,6 +34,9 @@ namespace CarvedRock.Api
 
 			services.AddDbContext<CarvedRockDbContext>(options =>
 				options.UseSqlServer(_config["ConnectionStrings:CarvedRock"]));
+
+			services.AddSingleton<IReviewMessageService, ReviewMessageService>();
+
 			services.AddScoped<IProductRepository, ProductRepository>();
 			services.AddScoped<IProductReviewRepository, ProductReviewRepository>();
 
@@ -40,17 +44,21 @@ namespace CarvedRock.Api
 			services.AddScoped<CarvedRockSchema>();
 
 			services.AddGraphQL(options =>
-			{
-				options.ExposeExceptions = _env.IsDevelopment();
-			})
-			.AddGraphTypes(ServiceLifetime.Scoped)
-			.AddUserContextBuilder(context => context.User)
-			.AddDataLoader();
-		}
+			    {
+				    options.ExposeExceptions = _env.IsDevelopment();
+			    })
+			    .AddGraphTypes(ServiceLifetime.Scoped)
+			    .AddUserContextBuilder(context => context.User)
+			    .AddDataLoader();
+
+            services.AddCors();
+        }
 
 		public void Configure(IApplicationBuilder app)
 		{
 			SeedInitialDatabase(app);
+
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
 			app.UseAuthentication();
 

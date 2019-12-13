@@ -6,12 +6,13 @@ namespace CarvedRock.Api.GraphQL
 {
 	public class CarvedRockQuery : ObjectGraphType
 	{
-		public CarvedRockQuery(IProductRepository productRepository)
+		public CarvedRockQuery(IProductRepository productRepository, IProductReviewRepository productReviewRepository)
 		{
 			Field<ListGraphType<ProductType>>(
 				"products",
 				resolve: context => productRepository.GetAll()
 			);
+
 			Field<ProductType>(
 				"product",
 				arguments: new QueryArguments(new QueryArgument<NonNullGraphType<IdGraphType>> { Name = "id" }),
@@ -27,6 +28,16 @@ namespace CarvedRock.Api.GraphQL
 					return productRepository.GetById(id);
 				}
 			);
-		}
+
+            Field<ListGraphType<ProductReviewType>>(
+                "reviews",
+                arguments: new QueryArguments(new QueryArgument<NonNullGraphType<IdGraphType>> { Name = "productId" }),
+                resolve: context =>
+                {
+                    var productId = context.GetArgument<int>("productId");
+                    return productReviewRepository.GetByProductId(productId);
+                }
+            );
+        }
 	}
 }

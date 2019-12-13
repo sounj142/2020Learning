@@ -2,8 +2,6 @@
 using CarvedRock.Api.Repositories;
 using GraphQL.DataLoader;
 using GraphQL.Types;
-using System.Security.Claims;
-using GraphQL;
 
 namespace CarvedRock.Api.GraphQL.Types
 {
