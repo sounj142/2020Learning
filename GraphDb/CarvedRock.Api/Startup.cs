@@ -44,24 +44,27 @@ namespace CarvedRock.Api
 			services.AddScoped<CarvedRockSchema>();
 
 			services.AddGraphQL(options =>
-			    {
-				    options.ExposeExceptions = _env.IsDevelopment();
-			    })
-			    .AddGraphTypes(ServiceLifetime.Scoped)
-			    .AddUserContextBuilder(context => context.User)
-			    .AddDataLoader();
+				{
+					options.ExposeExceptions = _env.IsDevelopment();
+				})
+				.AddGraphTypes(ServiceLifetime.Scoped)
+				.AddUserContextBuilder(context => context.User)
+				.AddDataLoader()
+				.AddWebSockets();
 
-            services.AddCors();
-        }
+			services.AddCors();
+		}
 
 		public void Configure(IApplicationBuilder app)
 		{
 			SeedInitialDatabase(app);
 
-            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+			app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
 			app.UseAuthentication();
 
+			app.UseWebSockets();
+			app.UseGraphQLWebSockets<CarvedRockSchema>();
 			app.UseGraphQL<CarvedRockSchema>();
 			app.UseGraphQLPlayground(new GraphQLPlaygroundOptions());
 		}

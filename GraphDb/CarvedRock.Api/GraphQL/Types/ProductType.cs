@@ -22,13 +22,14 @@ namespace CarvedRock.Api.GraphQL.Types
 				"reviews",
 				resolve: context =>
 				{
-                    // var user = context.UserContext as ClaimsPrincipal;
+					// var user = context.UserContext as ClaimsPrincipal;
+					// context.Errors.Add(new ExecutionError("An error happened when read reviews"));
 
-                    // context.Errors.Add(new ExecutionError("An error happened when read reviews"));
-
-                    var loader = dataLoaderAccessor.Context.GetOrAddCollectionBatchLoader<int, ProductReview>(
+					var loader = dataLoaderAccessor.Context.GetOrAddCollectionBatchLoader<int, ProductReview>(
 						"GetReviewsByProductIds", productReviewRepository.GetByProductIds);
 					return loader.LoadAsync(context.Source.Id);
+
+					// return productReviewRepository.GetByProductId(context.Source.Id);
 				}
 			);
 		}
